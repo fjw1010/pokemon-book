@@ -12,12 +12,12 @@ const PokemonList: React.FC = () => {
     const fetchData = async () => {
       const response = await fetch("/api/pokemons");
       const data = await response.json();
-      // console.log(data);
-      // setPokemons(data);
+      setPokemons(data);
       return data;
     };
     fetchData();
   }, []);
+
   return (
     <main className="container mx-auto">
       {pokemons.length === 0 ? (
