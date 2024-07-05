@@ -1,7 +1,5 @@
 import ferchPokemonData from "@/apis/pokemon";
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 
 const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
   const pokemonData = await ferchPokemonData(params.id);
@@ -9,12 +7,12 @@ const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
   return (
     <>
       <div className="pokemon-details max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        <div className="bg-gray-100 text-gray-800 text-center p-4">
+        <div className="bg-gray-100 text-gray-800 text-center p-4 bm-4">
           <h2 className="text-2xl font-bold">{pokemonData.korean_name}</h2>
           <p>No .{pokemonData.id.toString().padStart(4, "0")}</p>
         </div>
         <div className="p-4 text-black flex flex-col justify-start items-center">
-          <Image src={pokemonData.sprites.front_default} alt="포켓몬 이미지" />
+          <img src={pokemonData.sprites.front_default} alt="포켓몬 이미지" />
           <p className="text-center text-xl my-2">
             이름 : {pokemonData.korean_name}
           </p>
@@ -23,7 +21,7 @@ const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
             <p className="text-center">무게 : {pokemonData.weight / 10} kg</p>
           </div>
         </div>
-        <div className="text-center my-2">
+        <div className="text-center my-2 text-black p-5">
           <p className="font-bold mb-5">기술 : </p>
           <div className="flex flex-wrap gap-2 items-center text-center justify-center">
             {pokemonData.moves.map((move: any) => (
